@@ -10,7 +10,6 @@ import Popover from "@mui/material/Popover";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes, FaSignInAlt } from "react-icons/fa";
-import "./header.css";
 import "./navbar.css";
 
 const useStyle = makeStyles({

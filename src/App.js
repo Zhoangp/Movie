@@ -2,6 +2,7 @@ import { Route, Router, Switch } from "react-router";
 import {createBrowserHistory} from 'history'
 import { HomeTemplate } from "./templates/HomeTemplate/HomeTemplate";
 import Home from "./pages/Home";
+import "./App.css"
 
 export const history = createBrowserHistory();
 function App() {
