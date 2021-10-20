@@ -3,4 +3,63 @@
 }
 .content-title {
     color: white;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 42px;
+    margin: 0;
+    padding-right: 70px;
+    margin-bottom: 30px;
+}
+.MuiGrid-root {
+    display: flex;
+    justify-content: center;
+    margin: 0 !important;
+}
+.pagination {
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+.pagination li {
+    display: flex;
+    align-items: center;
+    transition: all .4s;
+    border-radius: 5px;
+    border: solid 2px #f9ab00;
+    margin: 0px 7px;
+    cursor: pointer;
+}
+.pagination .selected {
+    transform: scale(1.2);
+}
+.pagination li:hover {
+    background-color: rgba(249,171,0,0.14);
+}
+.pagination li a {
+    display: block;
+    padding: 1px 15px;
+    text-decoration: none;
+    color:white;
+}
+@media screen and (max-width: 600px) {
+    .pagination li a {
+        font-size: 12px;
+        padding: 1px 12px;
+    }
+    .pagination li a svg {
+        font-size: 1rem;
+    }
+}
+@media screen and (max-width: 450px) {
+    .pagination li {
+        margin: 0 4px;
+    }
+    .pagination li a {
+        font-size: 12px;
+        padding: 1px 7px;
+    }
+}
+@media screen and (max-width: 350px) {
+    .pagination li a {
+        padding: 0px 5px;
+    }
 }

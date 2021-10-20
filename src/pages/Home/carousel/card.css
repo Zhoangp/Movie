@@ -28,6 +28,8 @@
 .owl-item img {
     width: auto;
     max-width: 100%;
+    opacity: 1;
+    transition: all .4s;
 }
 .card__play {
     position: absolute;
@@ -67,6 +69,9 @@
     opacity: 1;
     transform: scale(1);
 }
+.card__cover:hover img {
+    opacity: 0.5;
+}
 .card__play:hover {
     border-color: rgba(249,171,0,0.5);
     color: #f9ab00;
@@ -92,6 +97,12 @@
 .card__rate--yellow {
     border-color: #ffc312;
 }
+.card__rate--green {
+    border-color: #29b474;
+}
+.card__rate--red {
+    border-color: #eb5757;
+}
 .card__content {
     position: relative;
     display: block;
@@ -100,7 +111,7 @@
 .card__title {
     font-size: 18px;
     line-height: 30px;
-    font-weight: 400;
+    font-weight: 300;
     color: #fff;
     margin: 0;
     overflow: hidden;
@@ -127,6 +138,13 @@
     flex-wrap: wrap;
 }
 .card__category a {
+    opacity: 0.8;
     color:#f9ab00;
     text-decoration: none;
+}
+.content__change .card__title a {
+    font-size: 16px;
+}
+.content__change .card__category a {
+    font-size: 14px;
 }

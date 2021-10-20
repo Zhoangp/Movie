@@ -13,16 +13,17 @@ const Home = (props) => {
   
   const dispatch = useDispatch();
   useEffect(async () => {
-      try {
-        const result = await axios({
-          url: "https://api.themoviedb.org/3/movie/popular?api_key=17d2b8ee0ce95cae017c6fe95cfcaa6b&language=en-US&page=1",
-          method: "GET"
-        })
-        dispatch({type: 'GET_FILM', payload: result.data})
-      } catch(error) {
-        console.log(error);
-      }
-  },[])
+    try {
+      const result = await axios({
+        url: 'https://api.themoviedb.org/3/movie/popular?api_key=17d2b8ee0ce95cae017c6fe95cfcaa6b&language=en-US&page=1',
+        method: "GET"
+      })
+      dispatch({type: 'GET_FILM', payload: result.data})
+    } catch(error) {
+      console.log(error);
+    }
+}
+,[])
 
   
   return (
