@@ -8,7 +8,7 @@ import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import Popover from "@mui/material/Popover";
 import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaTimes, FaSignInAlt } from "react-icons/fa";
 import "./navbar.css";
 
@@ -258,29 +258,16 @@ const Header = (props) => {
             />
           </Search>
               </li>
-             {/*  <li className="nav-btn">
-                {button ? (
-                  <Link to="/sign-up" className="btn-link">
-                    <Button buttonStyle="btn--outline" 
-                      className={classes.buttonn}
-                    
-                    >SIGN UP</Button>
-                  </Link>
-                ) : (
-                  <Link className="btn-link">
-                 
-                  </Link>
-                )}
-              </li> */}
+        
             </ul>
-            <Link className="btn-signIn">
+            <NavLink to="/signin" extra className="btn-signIn">
             <Button
                       onClick={closeMobileMenu}
                       className={classes.buttonn}>
                       SIGN IN
                     </Button>
                     <FaSignInAlt className="btn-signIn-icon"/>
-            </Link>
+            </NavLink>
             <div className="menu-icon" onClick={handleClick}>
               {click ? <FaTimes /> : <FaBars />}
             </div>

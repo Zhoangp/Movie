@@ -1,0 +1,1 @@
+export const DOMAIN = 'https://api.themoviedb.org/3/'

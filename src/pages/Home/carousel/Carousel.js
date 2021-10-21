@@ -12,11 +12,12 @@ import { FlareSharp } from "@material-ui/icons";
 const Carousel = (props) => {
   
   const listFilm = useSelector(state => state.FilmReducer.listFilm) || 0;
-
+  console.log(listFilm);
     const [state, setState] = useState({
         nav1: null,
         nav2: null,
       });
+      
     
       const slider1 = useRef();
       const slider2 = useRef();
@@ -68,11 +69,9 @@ const Carousel = (props) => {
           { listFilm.map((item, index) => {
             if(index < 8) {
               return  <div className="banner">
-                        <img src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`} />
-                        <div className="cover-bg">
+                        <div className="cover-bg" style={{backgroundImage: `url(https://image.tmdb.org/t/p/w500${item.backdrop_path})`}}>
+                          <div style={{backgroundColor: 'black', height: '100%', width: '100%', opacity: '0.8'}}></div>
                         </div>
-
-
                     </div>
             }
           })}

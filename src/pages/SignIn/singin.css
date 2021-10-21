@@ -1,0 +1,218 @@
+@font-face {
+    font-family: "Ionicons";
+    src: url('./ionicons.ttf');
+    font-weight: normal;
+    font-style: normal
+}
+* {
+    outline:  none !important;
+}
+.sign__logo {
+    display: block;
+    margin-bottom: 40px;
+}
+.sign-in {
+    background-image: url("../../img/section.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    background-position: center;
+}
+.sign__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 40px 0;
+}
+.sign__form {
+    background-color: #1a191f;
+    border: 1px solid #222028;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+.sign__group {
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+}
+.sign__input {
+    transition: all .3s;
+    width: 100%;
+    background-color: #222028;
+    border: 2px solid transparent;
+    height: 46px;
+    position: relative;
+    color: #fff;
+    font-size: 16px;
+    width: 100%;
+    color: #fff;
+    border-radius: 6px;
+    padding: 0 20px;
+}
+.sign__group--checkbox {
+    width: 100%;
+    text-align: left;
+}
+.sign__group--checkbox input:not(:checked), .sign__group--checkbox input:checked {
+    position: absolute;
+    left: -9999px;
+}
+.sign__btn {
+    transition: all .4s;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 46px;
+    width: 100%;
+    border-radius: 6px;
+    background-color: transparent;
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+    border: 2px solid #f9ab00;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.sign__btn:hover {
+    color: #fff;
+    background-color: rgba(249,171,0,0.05);
+}
+.sign__delimiter {
+    font-size: 14px;
+    color: #fff;
+    line-height: 100%;
+}
+.sign__text {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #fff;
+}
+.sign__text a {
+    position: relative;
+    color: #f9ab00;
+}
+.sign__input:focus {
+    border-color: #f9ab00;
+}
+.sign__group--checkbox input:not(:checked) + label, .sign__group--checkbox input:checked + label {
+    font-size: 14px;
+    color: #fff;
+    font-weight: normal;
+    position: relative;
+    cursor: pointer;
+    padding-left: 37px;
+    line-height: 22px;
+    margin: 0;
+}
+.sign__group--checkbox input:not(:checked) + label:before, .sign__group--checkbox input:checked + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 22px;
+    height: 22px;
+    background-color: #222028;
+    border-radius: 6px;
+}
+.sign__group--checkbox input:not(:checked) + label:after {
+    opacity: 0;
+    transform: scale(0);
+}
+.sign__group--checkbox input:not(:checked) + label:after, .sign__group--checkbox input:checked + label:after {
+    font-family: 'Ionicons';
+    content: '\f3fd';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 22px;
+    height: 22px;
+    font-size: 30px;
+    line-height: 22px;
+    text-align: center;
+    transition: 0.4s;
+    color: #f9ab00;
+}
+.sign__social {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+.sign__social .fb {
+    background-color: #3b5999;
+}
+.sign__social .fb:hover svg {
+    fill: #3b5999;
+}
+.sign__social .tw {
+    background-color: #1da1f2;
+}
+.sign__social .tw:hover svg {
+    fill: #1da1f2;
+}
+.sign__social .gl {
+    background-color: #df4a32;
+}
+.sign__social .gl:hover svg {
+    fill: #df4a32;
+}
+
+.sign__social a {
+    transition: all .4s;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 44px;
+    width: calc(33% - 10px);
+    border-radius: 6px;
+    color: #fff;
+}
+.sign__social a:hover {
+    background-color: #fff;
+}
+.sign__social .fb svg {
+    width: 10px;
+}
+.sign__social .tw svg {
+    width: 18px;
+}
+.sign__social .gl svg {
+    width: 18px;
+}
+.sign__social a svg {
+    height: auto;
+    fill: #fff;
+    transition: 0.4s;
+}
+svg {
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+@media  screen and (min-width: 576px) {
+    .sign__form {
+        padding: 50px 60px;
+    }
+    .sign__logo {
+        margin-bottom: 50px;
+    }
+}

@@ -9,12 +9,12 @@
     margin: 0;
     padding-right: 70px;
     margin-bottom: 30px;
+    margin-top: 30px;
     
 }
 @media screen and (max-width: 770px){
     .title-slider {
         font-size:32px;
-
     }  
 }
 .title-slider span {
@@ -40,16 +40,16 @@
     width: 100%;
 }
 .banner{
+    height: 700px;
     position: relative;
     width:100%
-}
-.banner img{
-    height: 700px;
-    width: 100%;
 }
 .cover-bg {
     position: absolute;
     top: 0;
     bottom: 0;
-    background-color: #000000d3;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
 }

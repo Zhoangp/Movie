@@ -6,6 +6,7 @@ import { Grid } from '@mui/material';
 import ReactPaginate from 'react-paginate';
 import { ArrowBack, ArrowForward } from '@material-ui/icons';
 import axios from 'axios'
+import { getFilmAction } from '../../../redux/actions/filmAction';
 
 
 const ListFilm = (props) => {
@@ -13,26 +14,14 @@ const ListFilm = (props) => {
     const imgStyle={
         width: '188px',
         height: '279px'
-    }
-    const [items, setItems] = useState([])
-    const fetchData = async (number) => {
-      try {
-        const result = await axios({
-          url: `https://api.themoviedb.org/3/movie/popular?api_key=17d2b8ee0ce95cae017c6fe95cfcaa6b&language=en-US&page=${number}`,
-          method: "GET"
-        })
-        dispatch({type: 'GET_FILM', payload: result.data})
-      } catch(error) {
-        console.log(error);
-      }
-  }
-    const listFilm = useSelector(state => state.FilmReducer.listFilm) || 0;
+    }   
+    const listFilm = useSelector(state => state.FilmReducer.listFilm);
     const handlePageClick = (data) => {
       let number = data.selected +1;
-      const comments = fetchData(number);
-      setItems(comments);
-      console.log(data.selected)
+      const comments = getFilmAction(number);
+      dispatch(comments);
     }
+
     const pre = () => {
       return <ArrowBack/ >
     }
@@ -52,20 +41,6 @@ const ListFilm = (props) => {
             })}
             </Grid>
         </div>
-      /*   <Grid container spacing={2}>
-  <Grid  xs={2}>
-    <div>xs=8</div>
-  </Grid>
-  <Grid  xs={2}>
-    <div>xs=4</div>
-  </Grid>
-  <Grid  xs={2}>
-    <div>xs=4</div>
-  </Grid>
-  <Grid  xs={2}>
-    <div>xs=8</div>
-  </Grid>
-</Grid> */
     );
 };
 
