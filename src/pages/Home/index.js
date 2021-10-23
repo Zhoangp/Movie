@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Carousel from "./carousel/Carousel";
 import { useDispatch, useSelector } from "react-redux";
 import ListFilm from "./ListFilm/ListFilm";
-import { getFilmAction } from "../../redux/actions/filmAction";
+import { getFilmAction, getFilmTrending } from "../../redux/actions/filmAction";
 import { NavLink } from "react-router-dom";
 
 const Home = (props) => {
@@ -13,6 +13,8 @@ const Home = (props) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getFilmAction(1));
+    dispatch(getFilmTrending())
+
   }
 ,[])
 

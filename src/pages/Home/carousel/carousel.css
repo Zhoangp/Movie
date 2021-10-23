@@ -1,6 +1,4 @@
-.cover {
-    margin-top:130px;
-}
+
 .title-slider {
     color:white;
     font-weight: 600;
@@ -45,6 +43,7 @@
     width:100%
 }
 .cover-bg {
+    height: 650px;
     position: absolute;
     top: 0;
     bottom: 0;

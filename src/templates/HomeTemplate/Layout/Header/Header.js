@@ -11,6 +11,7 @@ import Button from "@mui/material/Button";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaTimes, FaSignInAlt } from "react-icons/fa";
 import "./navbar.css";
+import { useSelector } from "react-redux";
 
 const useStyle = makeStyles({
   out: {
@@ -104,6 +105,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const Header = (props) => {
+  const infor = useSelector(state => state.UserReducer.infor);
+  console.log(infor);
   const [click, setClick] = useState(false);
   const ClickIcon = () => {
     setClick(!click);
@@ -138,6 +141,7 @@ const Header = (props) => {
     <Box sx={{ flexGrow: 1 }}>
         <nav className="navbar">
           <div className="navbar-container container">
+            <NavLink to="/">
             <IconButton
               size="large"
               edge="start"
@@ -164,12 +168,13 @@ const Header = (props) => {
                 />
               </svg>
             </IconButton>
+            </NavLink>
             
             <ul className={click ? "nav-menu active" : "nav-menu"}>
               <li className="nav-item">
-                <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+                <NavLink to="/" className="nav-links" onClick={closeMobileMenu}>
                   HOME
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
                 <Link
@@ -247,7 +252,7 @@ const Header = (props) => {
                     </Popover>
                   </Typography>
               </li>
-              <li>
+              <li style={{marginleft: "150px"}}>
               <Search className={classes.search}  sx={{display : {lg: 'block', md:'none', sm: 'none', xs: 'none ' }}}>
             <SearchIconWrapper>
               <SearchIcon />
@@ -259,15 +264,17 @@ const Header = (props) => {
           </Search>
               </li>
         
-            </ul>
-            <NavLink to="/signin" extra className="btn-signIn">
-            <Button
-                      onClick={closeMobileMenu}
-                      className={classes.buttonn}>
-                      SIGN IN
-                    </Button>
-                    <FaSignInAlt className="btn-signIn-icon"/>
-            </NavLink>
+            </ul> {
+              infor ? <Typography>{infor.hoTen}</Typography> :    <NavLink to="/signin" extra className="btn-signIn">
+              <Button
+                        onClick={closeMobileMenu}
+                        className={classes.buttonn}>
+                        SIGN IN
+                      </Button>
+                      <FaSignInAlt className="btn-signIn-icon"/>
+              </NavLink>
+            }
+         
             <div className="menu-icon" onClick={handleClick}>
               {click ? <FaTimes /> : <FaBars />}
             </div>
