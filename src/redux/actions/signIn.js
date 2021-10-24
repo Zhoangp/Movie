@@ -9,7 +9,6 @@ export const logIn = (values, callBack) => {
                 url: "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap",
                 data: values
             })
-            console.log(1)
             dispatch({type: actionTypes.GET_USER, payload: result.data})
             callBack();
         }

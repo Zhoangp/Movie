@@ -265,14 +265,21 @@ const Header = (props) => {
               </li>
         
             </ul> {
-              infor ? <Typography>{infor.hoTen}</Typography> :    <NavLink to="/signin" extra className="btn-signIn">
+              infor ? <Typography>{infor.hoTen}</Typography> :  (
+                <div className="cover-signUp-signIn">  
+              <NavLink className="signIn"  to="/signin">
+                  SIGN IN
+              </NavLink>
+              <NavLink to="/signup" extra className="btn-signIn">
               <Button
                         onClick={closeMobileMenu}
                         className={classes.buttonn}>
-                        SIGN IN
+                        Sign up
                       </Button>
                       <FaSignInAlt className="btn-signIn-icon"/>
               </NavLink>
+              </div>
+              )
             }
          
             <div className="menu-icon" onClick={handleClick}>

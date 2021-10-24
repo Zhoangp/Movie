@@ -36,9 +36,12 @@
     justify-content: end;
     margin: 0;
   }
+  .cover-signUp-signIn {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
 
-  
-  
   .nav-links {
     font-size:13px;
     font-weight: 300;
@@ -67,10 +70,25 @@
   }
   .btn-signIn {
     border: 2px solid #faab00 ;
-    padding: 3px 25px ;
+    padding: 0px 15px ;
     border-radius: 7px ;
     text-decoration: none;
+    display: flex;
+  }
+  .signIn {
+    margin-right: 15px;
+    text-decoration: none;;
+  }
+  .signIn:hover {
+    text-decoration: none;
+  }
+  .signIn {
+    color: #faab00;
+    text-decoration: none !important;
 
+  }
+  .signIn:hover {
+    color: white !important;
   }
   .btn-signIn .btn-signIn-icon {
     display: none;
