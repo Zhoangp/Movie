@@ -60,8 +60,3 @@
         padding: 1px 7px;
     }
 }
-@media screen and (max-width: 350px) {
-    .pagination li a {
-        padding: 0px 5px;
-    }
-}

@@ -10,6 +10,7 @@ export const logIn = (values, callBack) => {
                 data: values
             })
             dispatch({type: actionTypes.GET_USER, payload: result.data})
+            localStorage.setItem('credentials', JSON.stringify(result.data))
             callBack();
         }
         catch(error) {
