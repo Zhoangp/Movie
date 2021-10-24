@@ -265,7 +265,7 @@ const Header = (props) => {
               </li>
         
             </ul> {
-              infor ? <Typography>{infor.hoTen}</Typography> :  (
+              infor ? <Typography style={{color: "white"}}>{infor.hoTen}</Typography> :  (
                 <div className="cover-signUp-signIn">  
               <NavLink className="signIn"  to="/signin">
                   SIGN IN

@@ -24,19 +24,22 @@
     align-items: center;
     transition: all .4s;
     border-radius: 5px;
-    border: solid 2px #f9ab00;
+    border: solid 1px #f9aa0000;
+    background-color: #222028;
     margin: 0px 7px;
     cursor: pointer;
 }
 .pagination .selected {
-    transform: scale(1.2);
+    border: solid 1px #f9ab00;
 }
 .pagination li:hover {
     background-color: rgba(249,171,0,0.14);
+    border: solid 1px #f9ab00;
+
 }
 .pagination li a {
     display: block;
-    padding: 1px 15px;
+    padding: 3px 15px;
     text-decoration: none;
     color:white;
 }

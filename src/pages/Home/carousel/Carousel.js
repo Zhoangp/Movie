@@ -26,6 +26,8 @@ const Carousel = (props) => {
   const { nav1, nav2 } = state;
 
   var settings = {
+    autoplay: true,
+    autoplaySpeed: 3000,
     slidesToShow: 4,
     slidesToScroll: 1,
     arrows: false,
@@ -62,6 +64,7 @@ const Carousel = (props) => {
         arrows={false}
         asNavFor={nav2}
         ref={(slider) => (slider1.current = slider)}
+        fade={true}
       >
         {listFilmTrending.map((item, index) => {
           if(item.title)
