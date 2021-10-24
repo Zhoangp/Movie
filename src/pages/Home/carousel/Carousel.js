@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./carousel.css";
-import Card from "./Card";
+import Card from "./Cards";
 import { useSelector } from "react-redux";
 
 const Carousel = (props) => {

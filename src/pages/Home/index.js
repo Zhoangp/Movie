@@ -1,12 +1,8 @@
-import React, { useEffect, useState, useRef } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React, { useEffect } from "react";
 import Carousel from "./carousel/Carousel";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import ListFilm from "./ListFilm/ListFilm";
 import { getFilmAction, getFilmTrending } from "../../redux/actions/filmAction";
-import { NavLink } from "react-router-dom";
 
 const Home = (props) => {
   
@@ -18,7 +14,6 @@ const Home = (props) => {
   }
 ,[])
 
-  
   return (
     <div>
         <Carousel/>

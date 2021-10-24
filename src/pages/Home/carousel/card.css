@@ -1,6 +1,6 @@
 .owl-item {
     min-height: 1px;
-    float: left;
+
     -webkit-backface-visibility: hidden;
     -webkit-touch-callout: none;
 }
@@ -26,8 +26,7 @@
     background-color: #222028;
 }
 .owl-item img {
-    width: auto;
-    max-width: 100%;
+    width: 100%;
     opacity: 1;
     transition: all .4s;
 }
@@ -104,6 +103,7 @@
     border-color: #eb5757;
 }
 .card__content {
+    width: 100%;
     position: relative;
     display: block;
     margin-top: 10px;
@@ -147,4 +147,7 @@
 }
 .content__change .card__category a {
     font-size: 14px;
+}
+.MuiGrid-root {
+    margin: 0 8px;
 }

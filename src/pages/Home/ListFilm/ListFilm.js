@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Card from "../carousel/Card";
+import Cards from "../carousel/Cards";
 import { useDispatch, useSelector } from "react-redux";
 import "./ListFilm.css";
 import { Grid } from "@mui/material";
@@ -10,10 +10,6 @@ import { getFilmAction } from "../../../redux/actions/filmAction";
 
 const ListFilm = (props) => {
   const dispatch = useDispatch();
-  const imgStyle = {
-    width: "188px",
-    height: "279px",
-  };
   const listFilm = useSelector((state) => state.FilmReducer.listFilm);
   console.log(listFilm)
   const handlePageClick = (data) => {
@@ -30,29 +26,30 @@ const ListFilm = (props) => {
   };
   return (
     <div className="container cover-listFilm">
-      <h2 class="content-title">Movies</h2>
+      <h2 className="content-title">Movies</h2>
       <ReactPaginate
-        pageCount={7}
+        pageCount={5}
         previousLabel={pre()}
         nextLabel={next()}
         onPageChange={handlePageClick}
         containerClassName={"pagination"}
         pageClassName={"page__item"}
       />
-      <Grid container spacing={{ xs: 2, md: 1 }}>
-        {listFilm.map((item, index) => {
+      <div className="row row--grid">
+      {listFilm.map((itemFilm, index) => {
           if (index < 18)
             return (
-              <Grid xs={12} sm={4} md={4} lg={2}>
-                <Card
-                  infor={item}
-                  imgStyle={imgStyle}
+                <div className="col-6 col-sm-4 col-md-3 col-xl-2">
+                          <Cards
+                  infor={itemFilm}
+                  
                   contentChange="content__change"
                 />
-              </Grid>
+                </div>
             );
         })}
-      </Grid>
+        
+      </div>
     </div>
   );
 };

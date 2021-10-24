@@ -1,9 +1,14 @@
 import React from "react";
 import { BsPlayFill } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
 import "./card.css";
 
-const Card = (props) => {
+const Cards = (props) => {
   return (
     <div className="owl-item active">
       <div className="card card--big">
@@ -33,7 +38,7 @@ const Card = (props) => {
             <NavLink to={`/detail/${props.infor.id}`}>
               {props.infor.title.length > 23
                 ? props.infor.title.substring(0, 22) + "..."
-                : props.infor.title}
+                : props.infor.title} 
             </NavLink>
           </h3>
           <span className="card__category">
@@ -43,8 +48,9 @@ const Card = (props) => {
           </span>
         </div>
       </div>
-    </div>
+     </div> 
+     
   );
 };
 
-export default Card;
+export default Cards;
