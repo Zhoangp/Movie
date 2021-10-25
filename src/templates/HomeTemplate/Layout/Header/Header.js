@@ -106,7 +106,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const Header = (props) => {
   const infor = useSelector(state => state.UserReducer.infor);
-  console.log(infor);
   const [click, setClick] = useState(false);
   const ClickIcon = () => {
     setClick(!click);

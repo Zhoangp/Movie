@@ -1,0 +1,26 @@
+
+.scrollTop {
+    width: 40px;
+    border-radius: 6px;
+    border: 2px solid #f9ab00;
+    position: fixed; 
+    bottom: 4%;
+    right: 2%;
+    align-items: center;
+    height: 20px;
+    justify-content: center;
+    z-index: 1000;
+    cursor: pointer;
+    animation: fadeIn 0.3s;
+  }
+  .scrollTop:hover svg {
+      fill: #f9ab00;
+  }
+  
+  .scrollTop:hover{
+    opacity: 1;
+  }
+ .scrollTop svg {
+     transition: all .4s;
+      fill: white
+  }

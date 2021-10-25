@@ -1,14 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { BsPlayFill } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import {showDetail} from "../../../redux/actions/filmAction"
 import "./card.css";
 
 const Cards = (props) => {
+ 
   return (
     <div className="owl-item active">
       <div className="card card--big">

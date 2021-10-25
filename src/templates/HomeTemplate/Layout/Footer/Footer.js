@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './footer.css'
 
+
 const Footer = () => {
     return (
         <div className="container" style={{background :"#1a191f", borderTop: "1px solid #1a191f"}}>
@@ -14,7 +15,7 @@ const Footer = () => {
 <path d="M69.3818 22H64.9141V0.583984H77.1895V4.30469H69.3818V9.82715H76.6475V13.5332H69.3818V22ZM81.3789 22V0.583984H85.9199V18.25H94.6064V22H81.3789ZM98.3418 22V0.583984H102.883V22H98.3418ZM125.588 22H120.402L115.422 13.8994L110.441 22H105.578L112.683 10.9551L106.032 0.583984H111.042L115.656 8.28906L120.183 0.583984H125.075L118.352 11.2041L125.588 22Z" fill="white"/>
 </svg>
         </NavLink>
-        <span className="footer__copyright">© HOTFLIX, 2019—2021 <br /> Create by <a href="https://themeforest.net/user/dmitryvolkov/portfolio" target="_blank">Dmitry Volkov</a></span>
+        <span className="footer__copyright">© HOTFLIX, 2019—2021 <br /> Create by <a href="https://themeforest.net/user/dmitryvolkov/portfolio" target="_blank">Hoang Phuc</a></span>
         <nav className="footer__nav">
           <a href="about.html">About Us</a>
           <a href="contacts.html">Contacts</a>

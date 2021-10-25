@@ -31,3 +31,17 @@ export const getFilmTrending = () => {
     }
   }
 }
+export const getDetail = (id) => {
+  return async dispatch => {
+    try {
+      const result = await axios({
+          url: `${DOMAIN}movie/${id}?api_key=${KEY}&language=en-US`,
+          method: "GET"
+      })
+      dispatch({type: actionTypes.GET_DETAIL, payload: result.data})
+    }
+    catch (err) {
+      alert(err);
+    }
+  }
+}
