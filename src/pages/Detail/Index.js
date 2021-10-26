@@ -5,15 +5,17 @@ import { getDetail } from '../../redux/actions/filmAction';
 import "./detail.css"
 
 const Index = (props) => {
-  const {title, poster_path, vote_average, release_date, overview, backdrop_path} = useSelector((state) => state.FilmReducer.detailFilm) || {}
-
+  const {title, poster_path, vote_average, release_date, overview, backdrop_path, production_countries, genres, runtime, homepage} = useSelector((state) => state.FilmReducer.detailFilm) || {}
+  const detailFilm = useSelector((state) => state.FilmReducer.detailFilm) || {}
+ 
     const dispatch = useDispatch()
     const {id} = useParams()
       useEffect(() => {
         dispatch(getDetail(id))
         
       }  
-      , [])
+      , []);
+     
     return (
       <div >
         <div className="bg__detail" style={{backgroundImage: `url(https://image.tmdb.org/t/p/w500${backdrop_path})`}}></div>
@@ -36,12 +38,16 @@ const Index = (props) => {
             <div className="card__content">
               <ul className="card__meta">
                 <li><span>Director:</span> Vince Gilligan</li>
-                <li><span>Cast:</span> <a href="#">Brian Cranston</a> <a href="#">Jesse Plemons</a> <a href="#">Matt Jones</a> <a href="#">Jonathan Banks</a> <a href="#">Charles Baker</a> <a href="#">Tess Harper</a></li>
-                <li><span>Genre:</span> <a href="#">Action</a>
-                  <a href="#">Triler</a></li>
-                <li><span>Release year:</span> 2019</li>
-                <li><span>Running time:</span> 130 min</li>
-                <li><span>Country:</span> <a href="#">USA</a></li>
+                <li><span>Homepage:</span> <a href={homepage}>Brian Cranston</a> </li>
+                <li><span>Genre:</span> {genres !== undefined ? genres.map(item => {
+                  return <a href="#">{item.name}</a>
+                }) : <></>} 
+                  </li>
+                <li><span>Release date:</span>{release_date}</li>
+                <li><span>Running time:</span>{runtime} min</li>
+                <li><span>Country:</span> {production_countries ? production_countries.map(item => {
+                  return <a href="#">{item.iso_3166_1}</a>
+                }) : <></> } </li>
               </ul>
               <div className="card__description mCustomScrollbar _mCS_2" style={{position: 'relative', overflow: 'visible'}}>
                 <div id="mCSB_2" className="mCustomScrollBox mCS-custom-bar3 mCSB_vertical mCSB_outside" tabIndex={0} style={{maxHeight: 'none'}}>
