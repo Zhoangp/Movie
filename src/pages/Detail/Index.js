@@ -2,31 +2,33 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { getDetail } from '../../redux/actions/filmAction';
+import "./detail.css"
 
 const Index = (props) => {
-    const dispatch = useDispatch()
-    const {detailFilm} = useSelector((state) => state.FilmReducer) || {}
+  const {title, poster_path, vote_average, release_date, overview, backdrop_path} = useSelector((state) => state.FilmReducer.detailFilm) || {}
 
+    const dispatch = useDispatch()
     const {id} = useParams()
       useEffect(() => {
         dispatch(getDetail(id))
         
       }  
       , [])
-      console.log(detailFilm)
     return (
+      <div >
+        <div className="bg__detail" style={{backgroundImage: `url(https://image.tmdb.org/t/p/w500${backdrop_path})`}}></div>
         <div className="container">
-  <div className="row">
+     <div className="row">
     <div className="col-12">
-      <h1 className="section__title section__title--mb">I Dream in Another Language</h1>
+      <h1 className="section__title section__title--mb">{title}</h1>
     </div>
     <div className="col-12 col-xl-6">
       <div className="card card--details">
         <div className="row">
           <div className="col-12 col-sm-5 col-md-4 col-lg-3 col-xl-5">
             <div className="card__cover">
-              <img src="img/covers/cover1.jpg" alt />
-              <span className="card__rate card__rate--green">8.4</span>
+              <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt />
+              <span className={` card__rate ${vote_average > 7  ? "card__rate--green" : vote_average > 6 ? "card__rate--yellow" : "card__rate--red"}`}>{vote_average}</span>
             </div>
             <a href="http://www.youtube.com/watch?v=0O2aH4XLbto" className="card__trailer"><i className="icon ion-ios-play-circle" /> Watch trailer</a>
           </div>
@@ -41,9 +43,13 @@ const Index = (props) => {
                 <li><span>Running time:</span> 130 min</li>
                 <li><span>Country:</span> <a href="#">USA</a></li>
               </ul>
-              <div className="card__description mCustomScrollbar _mCS_2" style={{position: 'relative', overflow: 'visible'}}><div id="mCSB_2" className="mCustomScrollBox mCS-custom-bar3 mCSB_vertical mCSB_outside" tabIndex={0} style={{maxHeight: 'none'}}><div id="mCSB_2_container" className="mCSB_container" style={{position: 'relative', top: 0, left: 0}} dir="ltr">
-                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
-                  </div></div><div id="mCSB_2_scrollbar_vertical" className="mCSB_scrollTools mCSB_2_scrollbar mCS-custom-bar3 mCSB_scrollTools_vertical" style={{display: 'block'}}><div className="mCSB_draggerContainer"><div id="mCSB_2_dragger_vertical" className="mCSB_dragger" style={{position: 'absolute', minHeight: 30, display: 'block', height: 74, maxHeight: 170, top: 0}}><div className="mCSB_dragger_bar" style={{lineHeight: 30}} /><div className="mCSB_draggerRail" /></div></div></div></div>
+              <div className="card__description mCustomScrollbar _mCS_2" style={{position: 'relative', overflow: 'visible'}}>
+                <div id="mCSB_2" className="mCustomScrollBox mCS-custom-bar3 mCSB_vertical mCSB_outside" tabIndex={0} style={{maxHeight: 'none'}}>
+                  <div id="mCSB_2_container" className="mCSB_container" style={{position: 'relative', top: 0, left: 0}} dir="ltr">
+                    {overview}
+                  </div>
+                  </div>
+                  </div>
             </div>
           </div>
         </div>
@@ -60,6 +66,8 @@ const Index = (props) => {
           </video><div className="plyr__poster" style={{backgroundImage: 'url("https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg")'}} /></div><div className="plyr__captions" /><button type="button" className="plyr__control plyr__control--overlaid" data-plyr="play" aria-label="Play"><svg role="presentation" focusable="false"><use xlinkHref="#plyr-play" /></svg><span className="plyr__sr-only">Play</span></button></div>
     </div>  */}
   </div>
+
+</div>
 </div>
 
     );
