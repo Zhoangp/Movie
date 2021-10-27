@@ -2,6 +2,7 @@ import { actionTypes } from '../actions/types'
 const stateDefault = {
     listFilm: [],
     detailFilm: null,
+    filmVideo: null
 }
 const FilmReducer = (state = stateDefault, action) => {
     switch(action.type) {
@@ -11,6 +12,11 @@ const FilmReducer = (state = stateDefault, action) => {
         }
         case actionTypes.GET_DETAIL: {
             state.detailFilm = action.payload;
+            return {...state}
+        }
+        case actionTypes.GET_VIDEO: {
+            state.filmVideo = action.payload.results[0];
+
             return {...state}
         }
         default:

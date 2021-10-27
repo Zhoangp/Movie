@@ -6,6 +6,7 @@
     margin-bottom: 20px;
 }
 .bg__detail {
+    z-index:-99999;
     position:absolute;
     top: 0;
     left:0;

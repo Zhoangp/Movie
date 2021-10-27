@@ -32,16 +32,26 @@ export const getFilmTrending = () => {
   }
 }
 export const getDetail = (id) => {
-  return async dispatch => {
-    try {
-      const result = await axios({
+  return  dispatch => {
+      axios({
           url: `${DOMAIN}movie/${id}?api_key=${KEY}&language=en-US`,
           method: "GET"
       })
-      dispatch({type: actionTypes.GET_DETAIL, payload: result.data})
-    }
-    catch (err) {
-      alert(err);
+      .then(res=> {
+        dispatch({type: actionTypes.GET_DETAIL, payload: res.data})
+      })
+      .catch(err=>{
+        console.log(err)
+      })
+      axios({
+          url: `${DOMAIN}movie/${id}/videos?api_key=${KEY}&language=en-US`,
+          method: "GET"
+      })
+      .then(res=> {
+        dispatch({type: actionTypes.GET_VIDEO, payload: res.data})
+      })
+      .catch(err=>{
+        console.log(err)
+      })
     }
   }
-}
