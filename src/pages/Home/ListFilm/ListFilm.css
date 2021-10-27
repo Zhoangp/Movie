@@ -46,15 +46,19 @@
 @media screen and (max-width: 600px) {
     .pagination li a {
         font-size: 14px;
-        padding: 1px 12px;
+        padding: 2px 12px;
     }
     .pagination li a svg {
         font-size: 1rem;
+        transform: translateY(-2px);
     }
 }
 @media screen and (max-width: 450px) {
     .pagination li {
         margin: 0 4px;
+    }
+    .cover-listFilm {
+        margin-top: 100px;
     }
    
 }
