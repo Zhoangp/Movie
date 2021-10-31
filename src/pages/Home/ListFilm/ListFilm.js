@@ -9,6 +9,7 @@ import { getFilmAction } from "../../../redux/actions/filmAction";
 const ListFilm = (props) => {
   const dispatch = useDispatch();
   const listFilm = useSelector((state) => state.FilmReducer.listFilm);
+  console.log(listFilm);
   const handlePageClick = (data) => {
     let number = data.selected + 1;
     const comments = getFilmAction(number);
@@ -36,7 +37,7 @@ const ListFilm = (props) => {
       {listFilm.map((itemFilm, index) => {
           if (index < 18)
             return (
-                <div className="col-6 col-sm-4 col-md-3 col-xl-2">
+                <div key={index} className="col-6 col-sm-4 col-md-3 col-xl-2">
                           <Cards
                   infor={itemFilm}
                   

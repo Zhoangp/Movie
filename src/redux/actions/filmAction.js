@@ -15,6 +15,7 @@ export const getFilmAction = (pageNumber) => {
         } catch(error) {
           console.log(error);
         }
+      
         }
 }
 export const getFilmTrending = () => {

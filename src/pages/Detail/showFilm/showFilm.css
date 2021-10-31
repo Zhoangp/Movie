@@ -1,0 +1,17 @@
+.MuiGrid-root {
+    width: 97% !important;
+}
+.show__time a {
+    border: 2px solid #f9ab00;
+    text-decoration: none;
+    color:white;
+    border-radius: 6px;
+    padding: 5px;
+}
+.show__time a:hover {
+    background-color: rgba(249,171,0,0.05);
+}
+hr {
+    background-color: #f9ab00;
+    height: 1px;
+}

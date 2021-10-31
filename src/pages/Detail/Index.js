@@ -4,10 +4,12 @@ import { useParams } from 'react-router';
 import { getDetail } from '../../redux/actions/filmAction';
 
 import "./detail.css"
+import ShowFilm from './showFilm/ShowFilm';
 
 const Index = (props) => {
   const {title, poster_path, vote_average, release_date, overview, backdrop_path, production_countries, production_companies, genres, runtime} = useSelector((state) => state.FilmReducer.detailFilm) || {}
   const {key} = useSelector((state) => state.FilmReducer.filmVideo) || {}  
+
     const dispatch = useDispatch()
     const {id} = useParams()
       useEffect(() => {
@@ -31,7 +33,7 @@ const Index = (props) => {
               <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt />
               <span className={` card__rate ${vote_average > 7  ? "card__rate--green" : vote_average > 6 ? "card__rate--yellow" : "card__rate--red"}`}>{vote_average}</span>
             </div>
-            <a href="#" className="card__trailer">BOOK TICKETS</a>
+            <p className="card__trailer"><ShowFilm/></p>
           </div>
           <div className="col-12 col-md-8 col-lg-9 col-xl-7">
             <div className="card__content">
@@ -65,7 +67,6 @@ const Index = (props) => {
 <div className="col-12 col-xl-6">
 <iframe  src={`https://www.youtube.com/embed/${key}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
-
   </div>
 
 </div>

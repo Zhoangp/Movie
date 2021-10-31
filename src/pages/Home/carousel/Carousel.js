@@ -69,7 +69,7 @@ const Carousel = (props) => {
         {listFilmTrending.map((item, index) => {
           if(item.title)
             return (
-              <div className="banner">
+              <div className="banner" key={index}>
                 <div
                   className="cover-bg"
                   style={{
@@ -103,7 +103,7 @@ const Carousel = (props) => {
         >
           {listFilmTrending.map((item, index) => {
             if(item.title)
-              return <Card infor={item} imgStyle={imgStyle} />;
+              return <Card key={index} infor={item} imgStyle={imgStyle} />;
           })}
         </Slider>
       </div>
