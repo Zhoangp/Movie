@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@mui/material/Box";
@@ -11,7 +11,8 @@ import Button from "@mui/material/Button";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaTimes, FaSignInAlt } from "react-icons/fa";
 import "./navbar.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { actionTypes } from "../../../../redux/actions/types";
 
 const useStyle = makeStyles({
   out: {
@@ -105,6 +106,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const Header = (props) => {
+  const dispatch = useDispatch()
+  const signOut = () => {
+    dispatch({type: actionTypes.SIGN_OUT})
+  }
   const infor = useSelector(state => state.UserReducer.infor);
   const [click, setClick] = useState(false);
   const ClickIcon = () => {
@@ -264,9 +269,15 @@ const Header = (props) => {
               </li>
         
             </ul> {
-              infor ? <Typography style={{color: "white"}}>{infor.hoTen}</Typography> :  (
-                <div className="cover-signUp-signIn">  
-              <NavLink className="signIn"  to="/signin">
+              infor ?
+              <div className="cover-sign">  
+               <Typography style={{color: "white"}}>{infor.hoTen}</Typography>
+               <Button className={classes.buttonn} onClick={signOut} >
+                  SIGN OUT
+              </Button>
+               </div> :  (
+                <div className="cover-sign">  
+                <NavLink className="signIn" to="/signin">
                   SIGN IN
               </NavLink>
               <NavLink to="/signup" extra className="btn-signIn">

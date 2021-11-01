@@ -4,5 +4,6 @@ export const actionTypes = {
     GET_USER: 'GET_USER',
     GET_DETAIL: 'GET_DETAIL',
     GET_VIDEO: 'GET_VIDEO',
-    GET_SHOWTIME: 'GET_SHOWTIME'
+    GET_SHOWTIME: 'GET_SHOWTIME',
+    SIGN_OUT: 'SIGN_OUT'
 }

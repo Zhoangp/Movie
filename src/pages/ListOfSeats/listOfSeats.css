@@ -1,0 +1,53 @@
+
+.cover__seats {
+    display: flex;
+    color: white;
+    font-size: 12px;
+}
+span {
+    color: #f9ab00;
+}
+.cover__seats .seats__right h5 {
+    font-size: 17px;
+}
+.seats__left {
+    width: 70%;
+}
+.seats__right {
+    width: 30%;
+}
+.seats__right h1 {
+    text-align: center;
+}
+.total__seats {
+    display: flex;
+    justify-content: space-between;
+}
+.cover__seats .MuiButton-root {
+    min-width: 45px !important;
+    padding: 6px 0px !important;
+    border: 1px solid #f9ab00 !important;
+}
+.cover__seats .MuiButton-root:hover {
+    background-color: rgba(249,171,0,0.05) !important;
+}
+.seats-empty {
+    background-color:#f9ab00  !important;
+}
+@media screen and (max-width: 550px) {
+    .cover__seats {
+        display: block;
+    }
+    .seats__left {
+        width: 100%;
+    }
+    .seats__right {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 450px) {
+    .MuiButton-root {
+        min-width: 35px !important;
+        padding: 5px 0px !important;
+    }
+}

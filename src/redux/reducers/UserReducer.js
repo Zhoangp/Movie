@@ -1,7 +1,7 @@
 import { actionTypes } from "../actions/types"
 
 const initial = {
-    infor: null
+    infor: null,
 }
 const UserReducer = (state = initial, action) => {
     switch(action.type) {
@@ -9,6 +9,10 @@ const UserReducer = (state = initial, action) => {
             state.infor = action.payload;
             return {...state}
         }
+        case actionTypes.SIGN_OUT: 
+        console.log('sign out')
+            state.infor = null;
+            return {...state}
         default: 
             return {...state}
     }

@@ -26,7 +26,7 @@ const style = {
 };
 
 const ShowFilm = (props) => {
-  const listShowTime = useSelector(state => state.ShowTimeReducer.listShowTime)
+  const listShowTime = useSelector(state => state.ShowTimeReducer.listShowTime) || null
   console.log(listShowTime)
   const dispatch = useDispatch();
     const history = useHistory();
@@ -47,7 +47,7 @@ const ShowFilm = (props) => {
     const handleClose = () => setOpen(false);
     return (
         <div>
-        <Button onClick={handleOpen} style={{color: "white"}}>BOOK TICKETS</Button>
+        <Button onClick={handleOpen} style={{color: "white", width: "235px"}}>BOOK TICKETS</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -55,7 +55,7 @@ const ShowFilm = (props) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          {listShowTime.map(item => {
+          { listShowTime.map(item => {
             return <>
             <Typography id="modal-modal-title" variant="h4" component="h1">
             {item.tenHeThongRap}
@@ -85,7 +85,8 @@ const ShowFilm = (props) => {
             
             <hr></hr>
             </>
-          })}
+          })  
+        }
           
         </Box>
       </Modal>

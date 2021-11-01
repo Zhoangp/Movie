@@ -8,7 +8,6 @@ const Index = (props) => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values) => {
-    console.log(values);
     dispatch(logIn(values, () => {
       props.history.push("/");
     }))
