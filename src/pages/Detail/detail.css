@@ -77,6 +77,8 @@
     border: 2px solid #f9ab00;
     margin-top: 20px;
     text-decoration: none;
+    box-shadow: 0 0 10px 1px #f9ab00;
+    transition: all .3s;
 }
 .card__trailer:hover {
     text-decoration: none;

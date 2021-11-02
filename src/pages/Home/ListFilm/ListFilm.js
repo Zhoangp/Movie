@@ -9,7 +9,6 @@ import { getFilmAction } from "../../../redux/actions/filmAction";
 const ListFilm = (props) => {
   const dispatch = useDispatch();
   const listFilm = useSelector((state) => state.FilmReducer.listFilm);
-  console.log(listFilm);
   const handlePageClick = (data) => {
     let number = data.selected + 1;
     const comments = getFilmAction(number);

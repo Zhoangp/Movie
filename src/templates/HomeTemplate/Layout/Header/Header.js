@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@mui/material/Box";
@@ -13,6 +13,7 @@ import { FaBars, FaTimes, FaSignInAlt } from "react-icons/fa";
 import "./navbar.css";
 import { useDispatch, useSelector } from "react-redux";
 import { actionTypes } from "../../../../redux/actions/types";
+import { useHistory } from "react-router";
 
 const useStyle = makeStyles({
   out: {
@@ -104,13 +105,27 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   
   },
 }));
-
 const Header = (props) => {
+  const getCredentialFromLocal = () => {
+    const credentialsStr = localStorage.getItem("credentials");
+    if(credentialsStr) {
+      dispatch({type: actionTypes.GET_USER, payload: JSON.parse(credentialsStr)})
+    }
+  }
+    useEffect(() => {
+      getCredentialFromLocal();
+    }
+  ,[])
+const history = useHistory()
   const dispatch = useDispatch()
   const signOut = () => {
     dispatch({type: actionTypes.SIGN_OUT})
+    localStorage.removeItem('credentials')
+    localStorage.removeItem('ACCESS_TOKEN')
+    history.push("/")
   }
-  const infor = useSelector(state => state.UserReducer.infor);
+  const infor = useSelector(state => state.UserReducer.infor)
+
   const [click, setClick] = useState(false);
   const ClickIcon = () => {
     setClick(!click);

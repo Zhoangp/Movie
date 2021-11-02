@@ -19,6 +19,7 @@ h2 {
     background-color: rgba(249,171,0,0.05);
 }
 hr {
+    box-shadow: 0 0 10px 1px #f9ab00;
     background-color: #f9ab00;
     height: 1px;
 }

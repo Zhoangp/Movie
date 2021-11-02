@@ -5,5 +5,7 @@ export const actionTypes = {
     GET_DETAIL: 'GET_DETAIL',
     GET_VIDEO: 'GET_VIDEO',
     GET_SHOWTIME: 'GET_SHOWTIME',
-    SIGN_OUT: 'SIGN_OUT'
+    SIGN_OUT: 'SIGN_OUT',
+    GET_SEATS: 'GET_SEATS',
+    ADD_SEATS: 'ADD_SEATS',
 }

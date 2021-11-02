@@ -10,7 +10,6 @@ const UserReducer = (state = initial, action) => {
             return {...state}
         }
         case actionTypes.SIGN_OUT: 
-        console.log('sign out')
             state.infor = null;
             return {...state}
         default: 
