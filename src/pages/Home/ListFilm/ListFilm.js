@@ -24,14 +24,6 @@ const ListFilm = (props) => {
   return (
     <div className="container cover-listFilm">
       <h2 className="content-title">Movies</h2>
-      <ReactPaginate
-        pageCount={5}
-        previousLabel={pre()}
-        nextLabel={next()}
-        onPageChange={handlePageClick}
-        containerClassName={"pagination"}
-        pageClassName={"page__item"}
-      />
       <div className="row row--grid">
       {listFilm.map((itemFilm, index) => {
           if (index < 18)
@@ -47,6 +39,14 @@ const ListFilm = (props) => {
         })}
         
       </div>
+      <ReactPaginate
+        pageCount={5}
+        previousLabel={pre()}
+        nextLabel={next()}
+        onPageChange={handlePageClick}
+        containerClassName={"pagination"}
+        pageClassName={"page__item"}
+      />
     </div>
   );
 };

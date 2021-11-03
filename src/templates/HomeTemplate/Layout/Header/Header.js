@@ -1,10 +1,9 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import Popover from "@mui/material/Popover";
 import Button from "@mui/material/Button";
@@ -24,13 +23,13 @@ const useStyle = makeStyles({
     },
     "&:hover": {
       color: "#faab00!important",
-    }
+    },
   },
   buttonn: {
     color: "white!important",
     "&:focus": {
-      outline: "none"
-    }
+      outline: "none",
+    },
   },
   abc: {
     textAlign: "unset",
@@ -57,8 +56,7 @@ const useStyle = makeStyles({
         listStyle: "none",
         margin: "15px 0",
         fontWeight: "300",
-        fontSize:"16px"
-
+        fontSize: "16px",
       },
     },
   },
@@ -67,64 +65,28 @@ const useStyle = makeStyles({
   },
 });
 
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  marginLeft: 0,
-  borderRadius: 5,
-  width: "100%",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(1),
-    width: "222px",
-  },
-  
-}));
-
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  color: "white",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "white",
- 
-  "& .MuiInputBase-input": {
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    width: "100%",
-    "&:focus": {
-      border: "2px solid rgba(250,171,0,1)",
-      borderRadius: '5px'
-      },
-  
-  },
-}));
 const Header = (props) => {
   const getCredentialFromLocal = () => {
     const credentialsStr = localStorage.getItem("credentials");
-    if(credentialsStr) {
-      dispatch({type: actionTypes.GET_USER, payload: JSON.parse(credentialsStr)})
+    if (credentialsStr) {
+      dispatch({
+        type: actionTypes.GET_USER,
+        payload: JSON.parse(credentialsStr),
+      });
     }
-  }
-    useEffect(() => {
-      getCredentialFromLocal();
-    }
-  ,[])
-const history = useHistory()
-  const dispatch = useDispatch()
+  };
+  useEffect(() => {
+    getCredentialFromLocal();
+  }, []);
+  const history = useHistory();
+  const dispatch = useDispatch();
   const signOut = () => {
-    dispatch({type: actionTypes.SIGN_OUT})
-    localStorage.removeItem('credentials')
-    localStorage.removeItem('ACCESS_TOKEN')
-    history.push("/")
-  }
-  const infor = useSelector(state => state.UserReducer.infor)
+    dispatch({ type: actionTypes.SIGN_OUT });
+    localStorage.removeItem("credentials");
+    localStorage.removeItem("ACCESS_TOKEN");
+    history.push("/");
+  };
+  const infor = useSelector((state) => state.UserReducer.infor);
 
   const [click, setClick] = useState(false);
   const ClickIcon = () => {
@@ -144,9 +106,9 @@ const history = useHistory()
   };
   const [anchorEl, setAnchorEl] = React.useState(null);
 
-   const handleClickPoper = (event) => {
-      setAnchorEl(event.currentTarget);
-    };
+  const handleClickPoper = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
 
   const handleClose = () => {
     setAnchorEl(null);
@@ -156,17 +118,35 @@ const history = useHistory()
   const id = open ? "simple-popover" : undefined;
 
   const classes = useStyle();
+  const [classSearch, setClassSearch] = useState('')
+  const ref = useRef()
+  useEffect(() => {
+    const checkIfClickedOutside = e => {
+      // If the menu is open and the clicked target is not within the menu,
+      // then close the menu
+      if (classSearch && ref.current && !ref.current.contains(e.target)) {
+        setClassSearch('')
+      }
+    }
+
+    document.addEventListener("mousedown", checkIfClickedOutside)
+
+    return () => {
+      document.removeEventListener("mousedown", checkIfClickedOutside)
+    }
+  }, [classSearch])
+
   return (
-    <Box sx={{ flexGrow: 1 }}>
-        <nav className="navbar">
-          <div className="navbar-container container">
-            <NavLink to="/">
+    <Box ref={ref} sx={{ flexGrow: 1 }}>
+      <nav className="navbar">
+        <div className="navbar-container container">
+          <NavLink to="/">
             <IconButton
               size="large"
               edge="start"
               color="inherit"
               aria-label="open drawer"
-              sx={{ }}
+              sx={{}}
               className={classes.out}
             >
               <svg
@@ -187,132 +167,128 @@ const history = useHistory()
                 />
               </svg>
             </IconButton>
-            </NavLink>
-            
-            <ul className={click ? "nav-menu active" : "nav-menu"}>
-              <li className="nav-item">
-                <NavLink to="/" className="nav-links" onClick={closeMobileMenu}>
-                  HOME
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <Link
-                  to="/services"
-                  className="nav-links"
-                  onClick={closeMobileMenu}
+          </NavLink>
+
+          <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <li className="nav-item">
+              <NavLink to="/" className="nav-links" onClick={closeMobileMenu}>
+                HOME
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <Link
+                to="/services"
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >
+                ADMIN PAGE
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/products" className="nav-links">
+                ABOUT
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Typography
+                variant="h6"
+                noWrap
+                component="div"
+                sx={{ flexGrow: 1 }}
+                className="nav-links"
+              >
+                <Button className={classes.out} onClick={handleClickPoper}>
+                  <i className={`fas fa-ellipsis-h ${classes.abc}`}></i>
+                </Button>
+                <Popover
+                  id={id}
+                  open={open}
+                  anchorEl={anchorEl}
+                  onClose={handleClose}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "left",
+                  }}
+                  style={{ top: 22, left: 18 }}
                 >
-                  SERVICES
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  to="/products"
-                  className="nav-links"
-                  onClick={closeMobileMenu}
-                >
-                  CATALOG
-                </Link>
-              </li>
-              <li className="nav-item">
-                  <Typography
-                    variant="h6"
-                    noWrap
-                    component="div"
-                    sx={{ flexGrow: 1 }}
-                    className="nav-links"
-                  >
-                    <Button className={classes.out} onClick={handleClickPoper}>
-                      <i className={`fas fa-ellipsis-h ${classes.abc}`}></i>
-                    </Button>
-                    <Popover
-                      id={id}
-                      open={open}
-                      anchorEl={anchorEl}
-                      onClose={handleClose}
-                      anchorOrigin={{
-                        vertical: "bottom",
-                        horizontal: "left",
-                      }}
-                      style={{ top: 22, left: 18 }}
-                    >
-                      <Typography sx={{ p: 2 }} className={classes.typo}>
-                        <ul>
-                          <li style={{ margin: 0 }}>
-                            <a href="contacts.html">Contacts</a>
-                          </li>
-                          <li>
-                            <a href="faq.html">Help center</a>
-                          </li>
-                          <li>
-                            <a href="privacy.html">Privacy policy</a>
-                          </li>
-                          <li>
-                            <a href="about.html">About</a>
-                          </li>
-                          <li>
-                            <a href="../admin/index.html" target="_blank">
-                              Admin pages
-                            </a>
-                          </li>
-                          <li>
-                            <a href="profile.html">Profile</a>
-                          </li>
-                          <li>
-                            <a href="signin.html">Sign in</a>
-                          </li>
-                          <li>
-                            <a href="signup.html">Sign up</a>
-                          </li>
-                          <li>
-                            <a href="forgot.html">Forgot password</a>
-                          </li>
-                        </ul>
-                      </Typography>
-                    </Popover>
+                  <Typography sx={{ p: 2 }} className={classes.typo}>
+                    <ul>
+                      <li style={{ margin: 0 }}>
+                        <a href="contacts.html">Contacts</a>
+                      </li>
+                      <li>
+                        <a href="faq.html">Help center</a>
+                      </li>
+                      <li>
+                        <a href="privacy.html">Privacy policy</a>
+                      </li>
+                      <li>
+                        <a href="profile.html">Profile</a>
+                      </li>
+                      <li>
+                        <a href="signin.html">Sign in</a>
+                      </li>
+                      <li>
+                        <a href="signup.html">Sign up</a>
+                      </li>
+                      <li>
+                        <a href="forgot.html">Forgot password</a>
+                      </li>
+                    </ul>
                   </Typography>
-              </li>
-              <li style={{marginleft: "150px"}}>
-              <Search className={classes.search}  sx={{display : {lg: 'block', md:'none', sm: 'none', xs: 'none ' }}}>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
-              </li>
-        
-            </ul> {
-              infor ?
-              <div className="cover-sign">  
-               <Typography style={{color: "white"}}>{infor.hoTen}</Typography>
-               <Button className={classes.buttonn} onClick={signOut} >
-                  SIGN OUT
-              </Button>
-               </div> :  (
-                <div className="cover-sign">  
-                <NavLink className="signIn" to="/signin">
-                  SIGN IN
-              </NavLink>
-              <NavLink to="/signup" extra className="btn-signIn">
-              <Button
-                        onClick={closeMobileMenu}
-                        className={classes.buttonn}>
-                        Sign up
-                      </Button>
-                      <FaSignInAlt className="btn-signIn-icon"/>
-              </NavLink>
-              </div>
-              )
-            }
-         
-            <div className="menu-icon" onClick={handleClick}>
-              {click ? <FaTimes /> : <FaBars />}
-            </div>
-            
+                </Popover>
+              </Typography>
+            </li>
+            <li style={{ marginleft: "150px" }}></li>
+          </ul>
+          <div className="header__right">
+            <form className={`header__search ${classSearch}`}>
+              <input type="text" placeholder="Search..."></input>
+              <button className="button__search">
+                <SearchIcon />
+              </button>
+            </form>
+
+            <div className="cover-sign">
+              <button onClick={() => {
+                setClassSearch('header__search__active')
+              }} className="btn__search">
+                <SearchIcon />
+              </button>
+              {infor ? (
+                <Fragment>
+                  <Typography style={{ color: "white" }}>
+                    {infor.hoTen}
+                  </Typography>
+                  <Button className={classes.buttonn} onClick={signOut}>
+                    SIGN OUT
+                  </Button>
+                </Fragment>
+              ) : (
+                <Fragment>
+                  <NavLink className="signIn" to="/signin">
+                    SIGN IN
+                  </NavLink>
+                  <NavLink to="/signup" extra className="btn-signIn">
+                    <Button
+                      onClick={closeMobileMenu}
+                      className={classes.buttonn}
+                    >
+                      Sign up
+                    </Button>
+                    <FaSignInAlt className="btn-signIn-icon" />
+                  </NavLink>
+                </Fragment>
+              )}
+              <div className="menu-icon" onClick={handleClick}>
+            {click ? <FaTimes /> : <FaBars />}
           </div>
-        </nav>
+            </div>
+          </div>
+
+         
+        </div>
+      </nav>
     </Box>
   );
 };

@@ -47,7 +47,7 @@ const Index = (props) => {
                 }) : <></>} 
                   </li>
                 <li><span>Release date:</span>{release_date}</li>
-                <li><span>Running time:</span>{runtime} min</li>
+                <li><span>Running time:</span>{runtime} mins</li>
                 <li><span>Country:</span> {production_countries ? production_countries.map(item => {
                   return <a href="#">{item.iso_3166_1}</a>
                 }) : <></> } </li>

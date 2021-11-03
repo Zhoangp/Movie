@@ -1,5 +1,5 @@
 .navbar {
-    background:#1a191f;
+    background: #1a191f;
     display: flex;
     height: 80px;
     justify-content: center;
@@ -70,13 +70,13 @@
     display: none;
   }
   .btn-signIn {
+    margin: 0 15px;
     border: 2px solid #faab00 ;
     padding: 0px 15px ;
     border-radius: 7px ;
     text-decoration: none;
   }
   .signIn {
-    margin-right: 15px;
     text-decoration: none;;
   }
   .signIn:hover {
@@ -103,19 +103,80 @@
     text-decoration: none;
     
   }
-  
-  @media screen and (max-width: 960px) {
+  .header__right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header__right form {
+    transition: all .3s;
+    position: relative;
+  }
+  .header__search__active {
+    top: 20px !important;
+  }
+  .header__right input {
+    width: 100%;
+    background-color: #222028;
+    border: 2px solid #f9ab0000;
+    font-weight: 300;
+    font-size: 15px;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: none;
+    color: white;
+    transition: all .3s;
+    padding: 0 50px 0 20px;
+  }
+  .header__right input:focus {
+    border-color: #f9aa00;
+  }
+  .header__right form button {
+    position: absolute;
+    right: 20px;
+    top: 6px;
+    background: none;
+    border: none;
+  }
+  .btn__search  {
+    display: none;
+    background: none;
+    border: none;
+  }
+  .header__right svg {
+    fill: white;
+  }
+  @media (min-width: 1180px) {
+    .header__right {
+      width:500px;
+    }
+  }
+  @media (min-width: 632px) {
+    .header__right {
+      width: 450px;
+    }
+  }
+  @media screen and (max-width: 970px) {
+    .signIn {
+    margin-left: 15px;
+
+    }
+    .header__right {
+      justify-content: flex-end;
+    }
+    .header__right form {
+      top: -40px;
+      position: absolute !important;
+      left: 15px;
+      right: 15px;
+      z-index: 1;
+    }
+    .btn__search {
+      right: 33%;
+      display: block;
+    }
     .NavbarItems {
       position: relative;
-    }
-    .btn-signIn {
-      position: absolute;
-      transform: translate(-65%, 0%);
-      right: 0;
-    }
-    .signIn {
-      position: absolute;
-      right: 20%;
     }
     .nav-menu {
       display: flex;
@@ -185,14 +246,20 @@
     }
   }
   @media screen and (max-width: 770px) {
+    .cover-sign {
+      position: absolute;
+      right: 6%;
+    }
     .btn-signIn button {
       display: none;
+    }
+    .btn__search {
+      right: 16%;
     }
     .signIn {
       display: none;
     }
     .btn-signIn {
-      transform: translate(-200%, 0%);
       width:35px;
       height: 35px;
     }
@@ -207,13 +274,11 @@
     .logo {
       width: 90px;
     }
-  /*   .navbar-container {
-      padding: 0;
-    } */
-    .btn-signIn {
+ 
+    /* .btn-signIn {
       position: absolute;
       transform: translate(-160%, 0%);
       right: 0;
-    }
+    } */
   }
   
