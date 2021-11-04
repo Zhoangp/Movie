@@ -7,7 +7,7 @@ import SignIn from "./pages/SignIn/Index";
 import SignUp from "./pages/SignUp/Index"
 import Detail from "./pages/Detail/Index";
 import ListOfSeats from "./pages/ListOfSeats/Index"
-import "./App.css";
+import "./App.scss";
 
 export const history = createBrowserHistory();
 function App() {

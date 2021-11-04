@@ -47,7 +47,7 @@
 @media screen and (max-width: 600px) {
     .pagination li a {
         font-size: 14px;
-        padding: 2px 12px;
+        padding: 4px 12px;
     }
     .pagination li a svg {
         font-size: 1rem;

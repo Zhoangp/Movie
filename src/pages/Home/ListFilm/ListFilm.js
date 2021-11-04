@@ -6,6 +6,7 @@ import ReactPaginate from "react-paginate";
 import { ArrowBack, ArrowForward } from "@material-ui/icons";
 import { getFilmAction } from "../../../redux/actions/filmAction";
 
+
 const ListFilm = (props) => {
   const dispatch = useDispatch();
   const listFilm = useSelector((state) => state.FilmReducer.listFilm);
@@ -30,8 +31,7 @@ const ListFilm = (props) => {
             return (
                 <div key={index} className="col-6 col-sm-4 col-md-3 col-xl-2">
                           <Cards
-                  infor={itemFilm}
-                  
+                  infor={itemFilm} 
                   contentChange="content__change"
                 />
                 </div>

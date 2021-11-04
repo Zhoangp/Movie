@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router';
-import { Grid, LinearProgress } from '@mui/material';
+import { Grid } from '@mui/material';
 import './showFilm.css'
 import { NavLink } from 'react-router-dom';
 import { getShowTime } from '../../../redux/actions/showTime';
@@ -27,7 +27,6 @@ const style = {
 
 const ShowFilm = (props) => {
   const listShowTime = useSelector(state => state.ShowTimeReducer.listShowTime) || null
-  console.log(listShowTime)
   const dispatch = useDispatch();
     const history = useHistory();
     const {infor} = useSelector((state) => state.UserReducer)
@@ -55,14 +54,15 @@ const ShowFilm = (props) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          { listShowTime.map(item => {
+          { listShowTime.length !== 0 ?
+          listShowTime.map(item => {
             return <>
-            <Typography id="modal-modal-title" variant="h4" component="h1">
+            <Typography id="modal-modal-title" className="theater__cluster__name" variant="h4" component="h1">
             {item.tenHeThongRap}
             </Typography>
             {item.cumRapChieu.map(item => {
                 return <>
-                   <Typography id="modal-modal-title" variant="h6" component="h2">
+                   <Typography id="modal-modal-title" className="theater__name" variant="h6" component="h2">
                     {item.tenCumRap}
                   </Typography> 
                   <Grid
@@ -72,7 +72,7 @@ const ShowFilm = (props) => {
               alignItems="center"
              spacing={2}> 
              {item.lichChieuPhim.map((item, index)=> {
-                      return <Grid className="show__time" item xs={12} sm={4}  md={3} lg={2} >
+                      return <Grid className="show__time" item xs={6} sm={4}  md={3} lg={2} >
                         <NavLink to={`/booking/${item.maLichChieu}`}>
                           <p>{item.ngayChieuGioChieu.substring(0,10)}</p>
                           <p>{item.ngayChieuGioChieu.substring(11,19)}</p>
@@ -85,7 +85,8 @@ const ShowFilm = (props) => {
             
             <hr></hr>
             </>
-          })  
+          }) :
+                <h2>Sorry, there are currently no showings!</h2> 
         }
           
         </Box>

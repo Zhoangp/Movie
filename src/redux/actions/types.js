@@ -8,4 +8,7 @@ export const actionTypes = {
     SIGN_OUT: 'SIGN_OUT',
     GET_SEATS: 'GET_SEATS',
     ADD_SEATS: 'ADD_SEATS',
+    BOOKING__COMPLETE: 'BOOKING__COMPLETE',
+    LOADING_ON: 'LOADING_ON',
+    LOADING_OFF: 'LOADING_OFF',
 }

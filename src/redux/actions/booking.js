@@ -1,4 +1,6 @@
 import axios from "axios"
+import { getSeatsAction } from "./seatAction"
+import { actionTypes } from "./types"
 
 export const booking = (listTickets) => {
     return async (dispatch) => {
@@ -9,6 +11,10 @@ export const booking = (listTickets) => {
                 data: listTickets,
                 headers: {'Authorization': 'Bearer ' + localStorage.getItem('ACCESS_TOKEN')}
             })
+            dispatch({type: actionTypes.LOADING_ON})
+            await dispatch(getSeatsAction(listTickets.maLichChieu))
+            await dispatch({type: actionTypes.BOOKING__COMPLETE})
+            dispatch({type: actionTypes.LOADING_OFF})
         }
         catch(err) {
             console.log(err)

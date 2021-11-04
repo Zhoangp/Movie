@@ -5,6 +5,7 @@ import UserReducer from './reducers/UserReducer'
 import FilmTrendingReducer from './reducers/FilmTrendingReducer'
 import ShowTimeReducer from './reducers/ShowTimeReducer'
 import SeatsReducer from './reducers/SeatsReducer'
-const rootReducer = combineReducers({FilmReducer, UserReducer, FilmTrendingReducer, ShowTimeReducer, SeatsReducer})
+import LoadingReducer from './reducers/LoadingReducer'
+const rootReducer = combineReducers({FilmReducer, UserReducer, FilmTrendingReducer, ShowTimeReducer, SeatsReducer, LoadingReducer})
 
 export const store = createStore(rootReducer, applyMiddleware(thunk))

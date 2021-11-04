@@ -13,6 +13,7 @@ import "./navbar.css";
 import { useDispatch, useSelector } from "react-redux";
 import { actionTypes } from "../../../../redux/actions/types";
 import { useHistory } from "react-router";
+import {MdPersonPin} from 'react-icons/md'
 
 const useStyle = makeStyles({
   out: {
@@ -78,8 +79,9 @@ const Header = (props) => {
   useEffect(() => {
     getCredentialFromLocal();
   }, []);
-  const history = useHistory();
   const dispatch = useDispatch();
+
+  const history = useHistory();
   const signOut = () => {
     dispatch({ type: actionTypes.SIGN_OUT });
     localStorage.removeItem("credentials");
@@ -105,25 +107,33 @@ const Header = (props) => {
     }
   };
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [user, setHideInfor] = React.useState(null);
 
   const handleClickPoper = (event) => {
     setAnchorEl(event.currentTarget);
+  };
+  const handleClickPoper2 = (event) => {
+    setHideInfor(event.currentTarget);
   };
 
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const handleClose2 = () => {
+    setHideInfor(null);
+  };
 
   const open = Boolean(anchorEl);
+  const open2 = Boolean(user);
   const id = open ? "simple-popover" : undefined;
+  const id2 = open ? "simple-popover2" : undefined;
 
   const classes = useStyle();
   const [classSearch, setClassSearch] = useState('')
   const ref = useRef()
   useEffect(() => {
     const checkIfClickedOutside = e => {
-      // If the menu is open and the clicked target is not within the menu,
-      // then close the menu
+     
       if (classSearch && ref.current && !ref.current.contains(e.target)) {
         setClassSearch('')
       }
@@ -257,12 +267,30 @@ const Header = (props) => {
               </button>
               {infor ? (
                 <Fragment>
+                  <Button className={classes.out} onClick={handleClickPoper2}>
+                  <MdPersonPin style={{width: "40px", height: "40px", margin: "0 10px"}}/>
+                </Button>
+                <Popover
+                  id={id2}
+                  open={open2}
+                  anchorEl={user}
+                  onClose={handleClose2}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "left",
+                  }}
+                  style={{ top: 22, left: 18}}
+                >
+                  <div className="popop__user">
                   <Typography style={{ color: "white" }}>
                     {infor.hoTen}
                   </Typography>
                   <Button className={classes.buttonn} onClick={signOut}>
                     SIGN OUT
                   </Button>
+                  </div>
+                </Popover>
+                  
                 </Fragment>
               ) : (
                 <Fragment>

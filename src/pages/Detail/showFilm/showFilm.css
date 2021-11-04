@@ -5,6 +5,9 @@ p {
 h2 {
     padding-top: 0px;
 }
+.theater__name {
+    margin-top: 16px !important;
+}
 .MuiGrid-root {
     width: 97% !important;
 }
@@ -19,10 +22,20 @@ h2 {
     background-color: rgba(249,171,0,0.05);
 }
 hr {
+    margin-top: 28px;
+    margin-bottom: 2rem ;
     box-shadow: 0 0 10px 1px #f9ab00;
     background-color: #f9ab00;
     height: 1px;
 }
 h1 {
     color:#f9ab00;
+}
+@media (max-width: 500px) {
+    .theater__name {
+        font-size: 1rem;
+    }
+    .theater__cluster__name {
+        font-size: 1.9rem !important;
+    }
 }
