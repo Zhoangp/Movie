@@ -90,7 +90,7 @@ const Carousel = (props) => {
         })}
       </Slider>
 
-      <div className="container cover">
+      <div className="container cover" style={{paddingTop: "30px"}}>
         <h1 className="title-slider">
           NEW ITEMS <span>OF THIS SEASON</span>
         </h1>

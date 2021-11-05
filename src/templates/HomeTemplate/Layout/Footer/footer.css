@@ -93,3 +93,8 @@ a {
             margin-right: 30px;
         }
     }
+@media (max-width: 320px) {
+    .footer__nav a {
+        font-size: 12px;
+    }
+}

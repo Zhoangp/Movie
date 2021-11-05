@@ -11,9 +11,12 @@ span {
     font-size: 17px;
 }
 .seats__left {
+    margin-top: 30px;
     width: 70%;
 }
 .seats__right {
+    padding-top: 10px;
+    margin-top: 30px;
     width: 30%;
 }
 .seats__right h1 {
@@ -61,6 +64,9 @@ span {
     margin-right: 20px;
     margin-top: 10px;
 }
+.seats__left .MuiGrid-root {
+    padding-left: 0 !important;
+}
 h4 .list__seats__booked {
     margin-top: 10px;
     margin-right: 10px;
@@ -69,19 +75,40 @@ h4 .list__seats__booked {
     padding: 9px 0px !important;
 }
 @media screen and (max-width: 550px) {
+    
     .cover__seats {
         display: block;
     }
     .seats__left {
-        width: 100%;
+        width: 100% !important;
     }
     .seats__right {
-        width: 100%;
+        width: 100% !important;
     }
+}
+
+@media (max-width: 900px) {
+    .seats__left {
+        width: 55%;
+    }
+    .seats__right {
+        width: 45%;
+    }
+}
+@media (min-width: 550px) {
+    .seats__right {
+        margin-left: 15px;
+    }
+  
 }
 @media screen and (max-width: 450px) {
     .MuiButton-root {
         min-width: 35px !important;
         padding: 5px 0px !important;
+    }
+}
+@media (max-width: 330px) {
+    .cover__seats .seats__left .MuiButton-root {
+        min-width: 40px !important;
     }
 }

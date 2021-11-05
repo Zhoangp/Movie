@@ -70,7 +70,6 @@
     display: none;
   }
   .btn-signIn {
-    margin: 0 15px;
     border: 2px solid #faab00 ;
     padding: 0px 15px ;
     border-radius: 7px ;
@@ -83,7 +82,7 @@
     text-decoration: none;
   }
   .signIn {
- 
+    padding: 0 15px;
     color: #faab00;
     text-decoration: none !important;
 
@@ -105,7 +104,7 @@
   }
   .header__right {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
   }
   .header__right form {
@@ -163,6 +162,9 @@
     .signIn {
     margin-left: 15px;
 
+    }
+    .btn-signIn {
+      margin-right: 20px;
     }
     .header__right {
       justify-content: flex-end;
@@ -251,7 +253,6 @@
   @media screen and (max-width: 770px) {
     .cover-sign {
       position: absolute;
-      right: 6%;
     }
     .btn-signIn button {
       display: none;
@@ -263,6 +264,7 @@
       display: none;
     }
     .btn-signIn {
+      margin: 0 15px;
       width:35px;
       height: 35px;
     }
@@ -278,10 +280,5 @@
       width: 90px;
     }
  
-    /* .btn-signIn {
-      position: absolute;
-      transform: translate(-160%, 0%);
-      right: 0;
-    } */
   }
   

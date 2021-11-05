@@ -18,7 +18,7 @@ const Index = (props) => {
       , []);
      
     return (
-      <div style={{position: "relative"}} >
+      <div style={{position: "relative", paddingTop: "30px"}} >
         <div className="bg__detail" style={{backgroundImage: `url(https://image.tmdb.org/t/p/w500${backdrop_path})`}}></div>
         <div className="container">
      <div className="row">

@@ -24,8 +24,7 @@ const Index = () => {
         <div className="seats__right">
         {infor ?
         <Fragment>
-        <Typography variant="h3" component="h1">{total}VND</Typography>
-        <hr />
+        
         <Typography variant="h4" component="h4">{infor.tenCumRap}</Typography>
         <Typography variant="h6" component="h5">Địa điểm: <span>{infor.diaChi}</span> - <span>{infor.tenRap}</span></Typography>
         <Typography variant="h6" component="h5">Ngày chiếu: <span>{infor.ngayChieu}</span></Typography>
@@ -37,13 +36,16 @@ const Index = () => {
                 listSeatsBooking.map(item => {
                     return   <Button 
                     onClick={() => {
-                        dispatch({type: actionTypes.ADD_SEATS, payload: item})
+                        dispatch({type: actionTypes.ADD_SEATS, payload: {item, params }})
                     }} className="seats-selected list__seats__booked" variant="contained">
                         {item.tenGhe}
                     </Button>
                 })}
                 </div>
             </Typography>
+            <hr />
+
+            <Typography variant="h4" component="h1">{total}VND</Typography>
             </Fragment>
             : <Fragment></Fragment>
         }

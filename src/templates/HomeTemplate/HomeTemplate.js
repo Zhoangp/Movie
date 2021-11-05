@@ -11,7 +11,7 @@ export const HomeTemplate = (props) => { // props => path, exact, Component
     return <Route {...restProps} render={(propsRoute) => {
             return <Fragment>
                 <Header />
-                <div style={{marginTop: "130px"}}>
+                <div style={{marginTop: "80px"}}>
                 <BackToTop/>
                 <Component {...propsRoute}/>
                 </div>

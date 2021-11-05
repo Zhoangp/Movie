@@ -8,8 +8,9 @@ h2 {
 .theater__name {
     margin-top: 16px !important;
 }
+
 .MuiGrid-root {
-    width: 97% !important;
+    width: 100% !important;
 }
 .show__time a {
     border: 2px solid #f9ab00;

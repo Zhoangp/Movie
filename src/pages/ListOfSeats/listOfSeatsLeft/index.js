@@ -19,7 +19,6 @@ const Index = () => {
     const { listSeats, listSeatsBooking } = useSelector(
       (state) => state.SeatsReducer
     );
-    console.log(listSeats.length)
     return (
         <div className="seats__left">
         <Grid item container spacing={2}>
