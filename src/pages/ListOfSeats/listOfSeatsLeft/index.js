@@ -21,6 +21,10 @@ const Index = () => {
     );
     return (
         <div className="seats__left">
+        <div className="screen">
+
+        </div>
+
         <Grid item container spacing={2}>
           { listSeats.length !== 0 ?
           listSeats.map((item, index) => {

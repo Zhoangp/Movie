@@ -28,7 +28,7 @@ const Index = () => {
         <Typography variant="h4" component="h4">{infor.tenCumRap}</Typography>
         <Typography variant="h6" component="h5">Địa điểm: <span>{infor.diaChi}</span> - <span>{infor.tenRap}</span></Typography>
         <Typography variant="h6" component="h5">Ngày chiếu: <span>{infor.ngayChieu}</span></Typography>
-        <hr />
+        <hr style={{marginBottom: "24px"}} />
         <Typography className="total__seats" variant="h5" component="h4">
             <span>Ghế </span>
             <div>

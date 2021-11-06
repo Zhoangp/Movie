@@ -15,6 +15,7 @@ export const booking = (listTickets) => {
             await dispatch(getSeatsAction(listTickets.maLichChieu))
             await dispatch({type: actionTypes.BOOKING__COMPLETE})
             dispatch({type: actionTypes.LOADING_OFF})
+            alert('Tickets booking successful')
         }
         catch(err) {
             console.log(err)

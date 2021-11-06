@@ -271,6 +271,7 @@ const Header = (props) => {
                   <MdPersonPin style={{width: "40px", height: "40px", margin: "0 10px"}}/>
                 </Button>
                 <Popover
+                className="popop__cover"
                   id={id2}
                   open={open2}
                   anchorEl={user}
@@ -282,12 +283,20 @@ const Header = (props) => {
                   style={{ top: 22, left: 18}}
                 >
                   <div className="popop__user">
-                  <Typography style={{ color: "white" }}>
-                    {infor.hoTen}
-                  </Typography>
-                  <Button className={classes.buttonn} onClick={signOut}>
-                    SIGN OUT
-                  </Button>
+                    <ul>
+                      <li>
+                      <NavLink to="/personal">
+                        {infor.hoTen}
+                       </NavLink>
+                      </li>
+                      <li>
+                      <NavLink to="#" onClick={signOut}>
+                        SIGN OUT
+                      </NavLink>
+                      </li>
+                    </ul>
+                 
+                  
                   </div>
                 </Popover>
                   

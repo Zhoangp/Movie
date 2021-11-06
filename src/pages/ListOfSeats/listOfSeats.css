@@ -74,6 +74,14 @@ h4 .list__seats__booked {
     min-width: 46px !important;
     padding: 9px 0px !important;
 }
+.screen {
+    background-image: url('../../img//scren.jpg');
+    height: 250px;
+    margin-bottom:20px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 @media screen and (max-width: 550px) {
     
     .cover__seats {

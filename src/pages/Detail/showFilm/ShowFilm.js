@@ -45,7 +45,7 @@ const ShowFilm = (props) => {
     }
     const handleClose = () => setOpen(false);
     return (
-        <div>
+        <div >
         <Button onClick={handleOpen} style={{color: "white", width: "235px"}}>BOOK TICKETS</Button>
       <Modal
         open={open}
