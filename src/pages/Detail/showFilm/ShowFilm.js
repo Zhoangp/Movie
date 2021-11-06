@@ -36,7 +36,6 @@ const ShowFilm = (props) => {
         if(infor) {
             dispatch(getShowTime(params.id))
             setOpen(true);
-
         }
         else {
           alert("Vui lòng đăng nhập vào tài khoản!")

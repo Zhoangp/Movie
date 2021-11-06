@@ -44,13 +44,15 @@ const Index = () => {
                 </div>
             </Typography>
             <hr />
-
             <Typography variant="h4" component="h1">{total}VND</Typography>
             </Fragment>
             : <Fragment></Fragment>
         }
          <Button onClick={() => {
-            dispatch(booking(list))
+            if(total === 0)
+                alert('Please Book Tickets')
+            else
+                dispatch(booking(list))
          }} className="button-book">
              BOOK
         </Button>

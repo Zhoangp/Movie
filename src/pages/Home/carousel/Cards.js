@@ -12,7 +12,7 @@ const Cards = (props) => {
       <div className="card card--big">
         <div className="card__cover">
           <img
-            src={`https://image.tmdb.org/t/p/w500${props.infor.poster_path}`}
+            src={`https://image.tmdb.org/t/p/w500/${props.infor.poster_path}`}
             alt="poster"
             style={props.imgStyle}
           />

@@ -80,7 +80,6 @@ const Header = (props) => {
     getCredentialFromLocal();
   }, []);
   const dispatch = useDispatch();
-
   const history = useHistory();
   const signOut = () => {
     dispatch({ type: actionTypes.SIGN_OUT });
@@ -122,7 +121,6 @@ const Header = (props) => {
   const handleClose2 = () => {
     setHideInfor(null);
   };
-
   const open = Boolean(anchorEl);
   const open2 = Boolean(user);
   const id = open ? "simple-popover" : undefined;
@@ -290,9 +288,9 @@ const Header = (props) => {
                        </NavLink>
                       </li>
                       <li>
-                      <NavLink to="#" onClick={signOut}>
+                      <Button onClick={signOut} style={{padding: 0, color: "white"}}>
                         SIGN OUT
-                      </NavLink>
+                      </Button>
                       </li>
                     </ul>
                  

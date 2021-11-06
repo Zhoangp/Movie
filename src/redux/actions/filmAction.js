@@ -11,7 +11,6 @@ export const getFilmAction = (pageNumber) => {
             method: "GET"
           });
           dispatch({type: actionTypes.GET_FILM, payload: result.data })
-    
         } catch(error) {
           console.log(error);
         }
