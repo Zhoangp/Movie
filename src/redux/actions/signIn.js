@@ -4,6 +4,7 @@ import {actionTypes} from './types'
 export const logIn = (values, callBack) => {
     return async (dispatch) => {
         try {
+            dispatch({type: actionTypes.LOADING_ON})
             const result = await axios({
                 method: "POST",
                 url: "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap",

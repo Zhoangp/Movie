@@ -6,15 +6,17 @@ import { actionTypes } from "./types";
 export const getFilmAction = (pageNumber) => {
     return async (dispatch) => {
         try {
+          dispatch({type: actionTypes.LOADING_ON})
           const result = await axios({
             url: `${DOMAIN}movie/popular?api_key=${KEY}&language=en-US&page=${pageNumber}`,
             method: "GET"
           });
-          dispatch({type: actionTypes.GET_FILM, payload: result.data })
+          await dispatch({type: actionTypes.GET_FILM, payload: result.data })
+
         } catch(error) {
           console.log(error);
         }
-      
+        dispatch({type: actionTypes.LOADING_OFF})
         }
 }
 export const getFilmTrending = () => {

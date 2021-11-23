@@ -185,9 +185,9 @@ const Header = (props) => {
             </li>
             <li className="nav-item">
               <Link
-                to="/services"
+              href="https://hotflix-admin-page.vercel.app/admin"
                 className="nav-links"
-                onClick={closeMobileMenu}
+                target={"_blank"}
               >
                 ADMIN PAGE
               </Link>

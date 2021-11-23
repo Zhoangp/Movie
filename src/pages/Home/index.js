@@ -5,6 +5,7 @@ import ListFilm from "./ListFilm/ListFilm";
 import { getFilmAction, getFilmTrending } from "../../redux/actions/filmAction";
 import { actionTypes } from "../../redux/actions/types";
 import axios from 'axios'
+import Loading from "../../templates/Loading/Loading";
 
 const Home = (props) => {
   const dispatch = useDispatch();

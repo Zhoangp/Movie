@@ -17,7 +17,6 @@ const Index = () => {
   }, [])
   return (
     <div className="cover__seats container">
-      <Loading/>
       <SeatsLeft/>
       <SeatsRight />
     </div>

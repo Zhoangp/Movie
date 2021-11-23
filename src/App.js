@@ -8,11 +8,13 @@ import SignUp from "./pages/SignUp/Index"
 import Detail from "./pages/Detail/Index";
 import ListOfSeats from "./pages/ListOfSeats/Index"
 import "./App.scss";
+import Loading from "./templates/Loading/Loading";
 
 export const history = createBrowserHistory();
 function App() {
   return (
     <Router history={history}>
+        <Loading/>
         <Switch>
           <HomeTemplate path="/" exact Component={Home}></HomeTemplate>
           <HomeTemplate path="/detail/:id" Component={Detail}></HomeTemplate>
